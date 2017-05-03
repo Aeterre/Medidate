@@ -1,0 +1,7 @@
+*.zip
+*.zip.fake
+index.*
+Togethere/
+Square.esproj
+latest/
+.DS_Store

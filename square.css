@@ -1,0 +1,131 @@
+html{
+	height: 100%;
+	--margin: 2px;
+	--border-width-min: 2px;
+	--border-width-max: 4px;
+	--square: 50px;
+	--max-width: 150px;
+	--max-height: 300px;
+	--orange: #f57c40;
+	--red: #f54040;
+	--blue: #4f7df1;
+	--green: #10c40d;
+/*	background-color: #e13939;*/
+}
+
+body{
+	position: absolute;
+	margin: var(--margin);
+	height: calc(100% - 2 * var(--margin));
+	width: calc(100% - 2 * var(--margin));
+/*	width: calc(100% - var(--border-width) * 2);*/
+/*	border-width: var(--border-width);*/
+	/*border-style: solid;
+	border-bottom-color: var(--orange);
+	border-left-color: var(--red);
+	border-top-color: var(--blue);
+	border-right-color: var(--green);*/
+}
+
+.square{
+	width: var(--square);
+	height: var(--square);
+	position: absolute;
+	z-index: 6;
+}
+
+.zone{
+	position: absolute;
+	opacity: 0.5;
+/*	transition: all 0.2s ease-in;*/
+}
+
+.orange{
+	background-color: var(--orange);
+	left: 0;
+	bottom: 0;
+	border-color: var(--orange);
+}
+
+.red{
+	background-color: var(--red);
+	top: 0;
+	left: 0;
+}
+
+.blue{
+	background-color: var(--blue);
+	right: 0;
+	top: 0;
+}
+
+.green{
+	background-color: var(--green);
+	bottom: 0;
+	right: 0;
+}
+
+.orange, .blue{
+	border-radius: 0 calc(var(--square) / 2) 0 calc(var(--square) / 2);
+	border-width: var(--border-width-min) var(--border-width-max) var(--border-width-min) var(--border-width-max);
+}
+
+.red, .green{
+	border-radius: calc(var(--square) / 2) 0 calc(var(--square) / 2) 0;
+	border-width: var(--border-width-max) var(--border-width-min) var(--border-width-max) var(--border-width-min);
+	border-style: solid;
+}
+
+.zone.orange{
+	width: calc(100% - var(--max-width));
+}
+
+.zone.red{
+	height: calc(100% - var(--square));
+}
+
+.zone.blue{
+	width: calc(100% - var(--max-width));
+}
+
+.zone.green{
+	height: calc(100% - var(--square));
+}
+
+.calendar{
+	width: calc(100% - 306px);
+	height: calc(100% - 106px);
+	top: 53px;
+	left: 153px;
+	background-color: #bbbbbb;
+}
+
+.zone.orange.closed, .zone.blue.closed{
+	height: 0px;
+}
+
+.zone.orange.small, .zone.blue.small{
+	height: var(--square);
+}
+
+.zone.orange.medium, .zone.blue.medium{
+	height: var(--max-height);
+}
+
+.zone.red.closed, .zone.green.closed{
+	width: 0px;
+}
+
+.zone.red.small, .zone.green.small{
+	width: var(--square);
+}
+
+.zone.red.medium, .zone.green.medium{
+	width: var(--max-width);
+}
+
+.zone.big{
+	height: 100%;
+	width: 100%;
+	z-index: 4;
+}
