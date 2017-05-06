@@ -32,6 +32,9 @@ app.get('/square.js',  function (req, res) {
 app.get('/square.css', function (req, res) {
   res.sendFile(__dirname + '/square.css');
 });
+app.get('/calendar.js', function (req, res) {
+  res.sendFile(__dirname + '/calendar.js');
+});
 
 
 // --- Mongoose
