@@ -4,4 +4,8 @@ index.*
 Togethere/
 Square.esproj
 latest/
+
 .DS_Store
+node_modules
+
+config.production.json
