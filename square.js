@@ -24,10 +24,13 @@ $(document).ready(function() {
 //		$(".calendar").width($("body").width() - $(".zone.red").width() - $(".zone.green").width());
 //		$(".calendar").height($("body").height() - $(".zone.red").height() - $(".zone.green").height());
 	});
-
+});
   
+$(document).ready(function() {
   var calendar = [], oldCalendar = [];
+  var selectI, selectJ;
   var isSelecting   = false;
+  var selectionMode = null;
 
   // Filling a empty calendar
   for (day = 0; day < 7; day++) {
@@ -37,34 +40,33 @@ $(document).ready(function() {
     }
   }
 
-  // Filling the DOM
+  /* MakeCalendar()
+  ** Filling the DOM with the value of calendar[]
+  */
   function MakeCalendar() {
     $(".calendar").empty();
     for (day = 0; day < 7; day++) {
       var column = $("<div class='column'></div>");
-
       for (period = 0; period < 48; period++) {
-        var line = $("<div class='line "+calendar[day][period]+"' data-i='"+day+"' data-j='"+period+"'></div>");
+        var line = $("<div class='line "+ calendar[day][period] +"' data-i='"+ day +"' data-j='"+ period +"'></div>");
         column.append(line);
       }
-
       $(".calendar").append(column);
     }
   }
 
   MakeCalendar();
 
-  var calendar = [], oldCalendar = [];
-  var selectionMode = false;
-  var selectI, selectJ;
 
   function BindEvents() {
+
     $(".line").on("mousedown", function() {
 
       selectI = $(this).data('i');
       selectJ = $(this).data('j');
 
       isSelecting = true;
+      console.log("Setting isSelecting");
 
       if (calendar[selectI][selectJ] == "empty") {
         selectionMode = 'free';
@@ -92,13 +94,18 @@ $(document).ready(function() {
 
     $(window).on('mouseup',  function() {
       isSelecting = false;
+      console.log("Resetting isSelecting");
     });
 
 
     $(".line").on("mouseover", function() {
 
-      if (isSelecting == false)
+      if (isSelecting == false) {
+        console.log("Inactive mouseover..");
         return ;
+      }
+
+      console.log("Active mouseover");
 
       var i = $(this).data('i');
       var j = $(this).data('j');
@@ -117,6 +124,9 @@ $(document).ready(function() {
           }
 
           if (mode != calendar[a][b]) {
+
+            console.log("Updating ", a, b);
+
             // Updating calendar
             calendar[a][b] = mode;
 

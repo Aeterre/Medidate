@@ -155,3 +155,10 @@ body{
 .free{
 	background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 8%, rgba(255, 118, 24, 0.25) 25%, rgba(255, 118, 24, 0.25) 75%, rgba(255, 255, 255, 0) 92%);
 }
+
+.no-select {
+	-webkit-user-select: none;  
+	-moz-user-select: none;    
+	-ms-user-select: none;      
+	user-select: none;
+}
