@@ -2,6 +2,15 @@
 // TODO Use a better date for calendar entries, like "yyyy/mm/dd"
 // TODO Get calendar with signup or fill an empty calendar on signup (or return empty if calendar not present)
 
+var process = require("process");
+
+var config = null;
+if (process.env.NODE_ENV == 'production') {
+  config = require('./config.production.json');
+} else {
+  console.log("WARNING: Server running in development mode.");
+  config = require('./config.development.json');
+}
 
 // --- Express
 var express = require('express');
@@ -10,7 +19,7 @@ var app = express();
 app.use(require('body-parser').json());
 app.use(require('morgan')('tiny'));
 app.use(require('express-session')({
-  secret: require('./config.json').session, cookie: {}
+  secret: config.secret.session, cookie: {}
 }));
 
 // TODO Move static files to /public
