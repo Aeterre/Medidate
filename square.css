@@ -98,14 +98,6 @@ body{
 	height: calc(100% - var(--square));
 }
 
-.calendar{
-	width: calc(100% - 306px);
-	height: calc(100% - 106px);
-	top: 53px;
-	left: 153px;
-	background-color: #bbbbbb;
-}
-
 .zone.orange.closed, .zone.blue.closed{
 	height: 0px;
 }
@@ -134,4 +126,45 @@ body{
 	height: 100%;
 	width: 100%;
 	z-index: 4;
+}
+
+.calendar{
+	width: calc(100% - 306px);
+	height: calc(100% - 106px);
+	top: 53px;
+	left: 153px;
+}
+
+.column{
+	display: inline-block;
+	width: calc(100% / 7 - 2px);
+	height: 100%;
+	border: 1px solid rgba(0, 0, 0, 1);
+	background-color: rgb(244, 218, 196);
+}
+
+.column:hover{
+/*	border: 1px solid rgba(0, 0, 0, 0.3);*/
+}
+
+.line{
+	text-align: center;
+	height: 2%;
+	max-height: 2%;
+  overflow: hidden;
+}
+
+.empty{
+	background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 8%, rgba(0, 0, 0, 0.75) 25%, rgba(0, 0, 0, 0.75) 75%, rgba(255, 255, 255, 0) 92%);
+}
+
+.free{
+	background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 8%, rgba(255, 118, 24, 0.25) 25%, rgba(255, 118, 24, 0.25) 75%, rgba(255, 255, 255, 0) 92%);
+}
+
+.no-select {
+	-webkit-user-select: none;  
+	-moz-user-select: none;    
+	-ms-user-select: none;      
+	user-select: none;
 }
