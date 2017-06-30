@@ -1,16 +1,21 @@
 html{
 	height: 100%;
 	--margin: 2px;
+/*	--border*/
 	--border-width-min: 2px;
 	--border-width-max: 4px;
 	--square: 50px;
 	--max-width: 150px;
 	--max-height: 300px;
-	--orange: #f57c40;
-	--red: #f54040;
-	--blue: #4f7df1;
-	--green: #10c40d;
-/*	background-color: #e13939;*/
+	--orange: rgba(245, 124, 64, 1);
+	--orange-low: rgba(245, 124, 64, 0.5);
+	--red: rgba(245, 64, 64, 1);
+	--red-low: rgba(245, 64, 64, 0.5);
+	--blue: rgba(79, 124, 241, 1);
+	--blue-low: rgba(79, 124, 241, 0.5);
+	--green: rgba(16, 196, 13, 1);
+	--green-low: rgba(16, 196, 13, 0.5);
+
 }
 
 body{
@@ -32,6 +37,7 @@ body{
 	height: var(--square);
 	position: absolute;
 	z-index: 6;
+	background-color: rgba(16, 196, 13, 0.5);
 }
 
 .zone{
@@ -77,7 +83,7 @@ body{
 }
 
 .zone.orange{
-	width: calc(100% - var(--max-width));
+	width: calc(100% - var(--max-width) - var(--));
 }
 
 .zone.red{
